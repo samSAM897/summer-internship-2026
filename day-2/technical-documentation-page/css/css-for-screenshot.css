@@ -1,0 +1,25 @@
+p {
+  color: red;
+  font-size: 18px;
+}
+
+#test-id {
+  text-align: center;
+  display: grid;
+}
+
+.test {
+  color: brown;
+  background-color: beige;
+}
+
+* {
+  color: green;
+}
+
+p,
+li,
+a {
+  font-size: 22px;
+  font-family: Verdan;
+}

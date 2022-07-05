@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=s, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>Technical Documentation Page</title>
+  </head>
+  <body>
+    <nav id="navbar">
+      <header>Technical Documentation</header>
+      <ul>
+        <li><a href="#Intro" class="nav-links">Introduction</a></li>
+        <li><a href="#Pre" class="nav-links">Prerequisites</a></li>
+        <li><a href="#HTML" class="nav-links">HTML</a></li>
+        <li><a href="#CSS" class="nav-links">CSS - brief overview</a></li>
+        <li>
+          <a href="#CSS-select" class="nav-links">CSS - Selector examples</a>
+        </li>
+        <li><a href="#VSC" class="nav-links">VSCode</a></li>
+      </ul>
+    </nav>
+
+    <main id="main-doc">
+      <section id="Intro">
+        <header>Introduction</header>
+        <article>
+          <p>
+            This technical guide is intended to help people learn the basics of
+            Web Development.
+          </p>
+        </article>
+      </section>
+
+      <section id="Pre">
+        <header>Prerequisites</header>
+        <article>
+          <p>
+            To be able to understand the content of this guide, one must be well
+            versed with the following:
+          </p>
+          <ul>
+            <li>
+              How the web works? That is being well aware of the different kinds
+              of requests, models of the web.
+            </li>
+            <li>
+              The internet. Being aware of the different ways communication over
+              the web is happening.
+            </li>
+          </ul>
+        </article>
+      </section>
+
+      <section id="HTML">
+        <header>HTML</header>
+        <article>
+          <p>
+            HyperText Markup Language or HTML is the standard language for Web
+            pages. Using HTML, we can provide the basic stucture of the website.
+            It consists of a series of elements. HTML elements tell the browser
+            how to display the content.
+          </p>
+
+          <p>This is how to create a simple website in HsTML:</p>
+          <img src="./img/easy-webpage.png" alt="A simple HTML Code" />
+          <p>This simple code snippet results in a webpage like this:</p>
+          <img
+            src="./img/easy-webpage-output.png"
+            alt="Output of the simple HTML Code"
+          />
+          <p>
+            HTML has many commonly used tags, which are used by almost all the
+            web developers around the world:
+          </p>
+          <ul>
+            <li>
+              <code>head</code>: This tag is used to provide the metadata and
+              all other information which is not visible to the end-user but is
+              accesible by the browser.
+            </li>
+
+            <li>
+              <code>body</code>: The body tag contains all the visible
+              information which the end-user interacts with. It can contain
+              images, audio, video, forms, etc.
+            </li>
+
+            <li>
+              <code>div</code>: One of the most commonly used tags, the div tag
+              is used to divide a page into smaller divisions which can be
+              further divided into much smaller sub divisions.
+            </li>
+          </ul>
+          <p>
+            If you wish to work with HTML, you should always remember to use the
+            following boilerplate code:
+          </p>
+          <img
+            src="./img/boilerplate-code.png"
+            alt="A sample boilerplate code to help you get started with HTML"
+          />
+        </article>
+      </section>
+
+      <section id="CSS">
+        <header>CSS - Basics</header>
+        <article>
+          <p>
+            CSS or Cascading Style Sheets is the primary language used to style
+            HTML documents. CSS describes how HTML elements should be displayed.
+            CSS can also control the layout of multiple webpages all at once.
+            Styling is done via the use of Selectors. Some common selectors are:
+          </p>
+          <ul>
+            <li>
+              Simple selectors: Select the elements based on the tag name.
+            </li>
+            <li>
+              Combinator Selectors: Combining two or more elements together
+              based on a specific relationship between them.
+            </li>
+            <li>
+              Pseudo Class Selectors: Select elements based on a certain state.
+            </li>
+            <li>
+              Pseudo Element Selector: Select and style the parts of an element.
+            </li>
+            <li>
+              Attribute Selector: Select element based on an attribute or
+              attribute value.
+            </li>
+          </ul>
+
+          <p>A rule in CSS consists of a selector and a block:</p>
+          <img src="./img/simple-css.png" alt="A standard block of CSS code" />
+        </article>
+      </section>
+
+      <section id="CSS-select">
+        <header>CSS Selectors</header>
+        <p>CSS has many different ways of selecting elements:</p>
+        <ul>
+          <li>
+            <p class="title">The element Selector:</p>
+            <img
+              src="./img/para-selector.png"
+              alt="An example of the element selector in CSS"
+            />
+            <p>
+              This will give all the paragraph elements a red color and make the
+              font to be 18 pixels.
+            </p>
+          </li>
+
+          <li>
+            <p class="title">The id Selector:</p>
+            <img
+              src="./img/id-selector-example.png"
+              alt="An example of the id selector in CSS"
+            />
+            <p>
+              This gives the element with the id "test-id" a display of grid and
+              aligns its contents to center.
+            </p>
+          </li>
+
+          <li>
+            <p class="title">The class Selector:</p>
+            <img
+              src="./img/class-selector.png"
+              alt="An example of the class selector in CSS"
+            />
+            <p>
+              This gives the elements with the class "test" a brown color with a
+              beige background.
+            </p>
+          </li>
+
+          <li>
+            <p class="title">The Universal Selector:</p>
+            <img
+              src="./img/uni-sel.png"
+              alt="An example of the Universal selector in CSS"
+            />
+            <p>
+              This will give all the content in the webpage a color of green.
+            </p>
+          </li>
+
+          <li>
+            <p class="title">The Grouping Selector:</p>
+            <img
+              src="./img/group-selector.png"
+              alt="An example of the grouping selector in CSS"
+            />
+            <p>
+              This will give all paragraphs, lists and anchor tags a font-size
+              of 22 pixels and a font-family of Veradna.
+            </p>
+          </li>
+        </ul>
+      </section>
+
+      <section id="VSC">
+        <header>Visual Studio Code</header>
+        <article>
+          <p>
+            Visual Studio Code is a code editor made by Windows for Windows,
+            Linux and macOS. It is one of the most popular code editors. It also
+            includes features such as debugging, syntax highlighting, code
+            refractoring and embedded Git and has a rich collection of
+            extensions which can make it even more usable for productive tasks.
+          </p>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>
