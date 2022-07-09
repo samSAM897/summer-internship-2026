@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="nav-content">
+      <nav class="navbar">Navbar area</nav>
+    </div>
+
+    <div class="main-content">
+      <form action="">
+        <label for="post-area">Blogpost:</label>
+        <textarea name="post-area" id="" cols="30" rows="5"></textarea>
+        <br />
+
+        <button type="button" class="post-btn" onclick="createPost()">
+          Post
+        </button>
+
+        <button id="delete-btn" class="button" type="button">
+          Edit Latest Post
+        </button>
+
+        <button id="delete-btn" class="button" type="button">
+          Delete Latest Post
+        </button>
+
+        <button id="show-btn" class="button">Show Posts</button>
+      </form>
+    </div>
+
+    <div class="posts" id="post-area"></div>
+
+    <script>
+      let postsCounter = 0;
+      let posts = [];
+
+      //TODO: Add the main logic to the events.
+
+      const createPost = () => {
+        alert("Post created");
+      };
+
+      const deletePost = () => {
+        alert("Delete method invoked");
+      };
+
+      const showPosts = () => {
+        alert("Show button pressed");
+      };
+    </script>
+  </body>
+</html>
