@@ -6,15 +6,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
+      .nav-content,
+      .main-content {
+        max-width: 500px;
+        margin: auto;
+      }
+
       .post-body {
-        color: red;
-        border: 1px solid green;
+        padding: 10px 20px;
+      }
+
+      span.posts {
+        border: 5px solid black;
+        max-width: 200px;
+        border-radius: 10%;
+      }
+
+      .post-title {
+        color: black;
+        font-size: 1.8em;
+        font-weight: bold;
+        padding: 10px 20px;
+        text-align: center;
       }
     </style>
   </head>
   <body>
     <div class="nav-content">
-      <nav class="navbar">Sample blogging app using local storage.</nav>
+      <nav class="navbar">
+        <h2>Sample blogging app using local storage.</h2>
+      </nav>
     </div>
 
     <div class="main-content">
@@ -62,9 +83,9 @@
           Show Posts
         </button>
       </form>
-    </div>
 
-    <div class="posts" id="post-area"></div>
+      <div class="posts" id="post-area"></div>
+    </div>
 
     <script>
       let postsCounter = 0;
@@ -127,23 +148,23 @@
       };
 
       const showPosts = () => {
-        // let tempPosts = posts.reverse();
         let postArea = document.getElementById("post-area");
-        postArea.innerHTML = `<div class="post">`;
+        let postDiv = document.createElement("div");
+        postDiv.className = "post";
 
-        for (let i = posts.length - 1; i >= 0; i--) {
+        postArea.appendChild(postDiv);
+
+        for (let i = posts.length - 1; i >= 0; --i) {
           const postTitle = posts[i];
           const postBody = JSON.parse(
             window.localStorage.getItem(postTitle)
           ).postContent;
           console.log(postTitle + " -> " + postBody);
-          postArea.innerHTML += `<div class="posts">`;
-          postArea.innerHTML += `<span class="post-title">${postTitle}</span><br>`;
-          postArea.innerHTML += `<span class="post-body">${postBody}</span>`;
-          postArea.innerHTML += `</div><br>`;
+          let postContent = document.createElement("div");
+          postContent.innerHTML = `<span class="post-title">${postTitle}</span><br><span class="post-body">${postBody}</span>`;
+          postContent.className = "posts-content";
+          postDiv.appendChild(postContent);
         }
-
-        postArea.innerHTML += `</div>`;
       };
     </script>
   </body>
