@@ -117,8 +117,13 @@
       };
 
       const deletePost = () => {
-        alert("Delete method invoked");
-        // TODO: Add the logic to implement deletePost method.
+        const deletedPost = JSON.parse(
+          window.localStorage.getItem(posts.pop())
+        );
+        console.log(deletedPost);
+
+        window.localStorage.removeItem(deletePost.postTitle);
+        alert("Deleted the latest post!");
       };
 
       const showPosts = () => {
