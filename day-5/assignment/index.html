@@ -5,31 +5,62 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <style>
+      .post-body {
+        color: red;
+        border: 1px solid green;
+      }
+    </style>
   </head>
   <body>
     <div class="nav-content">
-      <nav class="navbar">Navbar area</nav>
+      <nav class="navbar">Sample blogging app using local storage.</nav>
     </div>
 
     <div class="main-content">
       <form action="">
+        <label for="post-title">Title of the blogpost:</label>
+        <input type="text" name="post-title" id="title" placeholder="Title" />
+        <br />
         <label for="post-area">Blogpost:</label>
-        <textarea name="post-area" id="" cols="30" rows="5"></textarea>
+        <textarea
+          name="post-area"
+          id="post-content"
+          cols="30"
+          rows="5"
+        ></textarea>
         <br />
 
         <button type="button" class="post-btn" onclick="createPost()">
           Post
         </button>
 
-        <button id="delete-btn" class="button" type="button">
+        <button
+          id="delete-btn"
+          class="button"
+          type="button"
+          onclick="editPosts()"
+        >
           Edit Latest Post
         </button>
 
-        <button id="delete-btn" class="button" type="button">
+        <button
+          id="delete-btn"
+          class="button"
+          type="button"
+          onclick="deletePost()"
+        >
           Delete Latest Post
         </button>
 
-        <button id="show-btn" class="button">Show Posts</button>
+        <button
+          id="show-btn"
+          class="button"
+          onclick="showPosts()"
+          type="button"
+        >
+          Show Posts
+        </button>
       </form>
     </div>
 
@@ -41,16 +72,73 @@
 
       //TODO: Add the main logic to the events.
 
+      // Storing posts in the form of objects ->
+      // something like this: post-index(ID) -> using a stack to store the posts
+      // and post-body: Stores the content for the blog post.
+
       const createPost = () => {
-        alert("Post created");
+        const postTitle = document.getElementById("title").value;
+
+        const postContent = document.getElementById("post-content").value;
+
+        const post = {
+          postTitle: postTitle,
+          postContent: postContent,
+        };
+
+        window.localStorage.setItem(`${postTitle}`, JSON.stringify(post));
+        posts.push(postTitle);
+        console.log("Post Created");
+        alert("New Post Created!");
+        // console.log(window.localStorage.getItem(`${postTitle}`));
+      };
+
+      const editPosts = () => {
+        const postTitle = document.getElementById("title").value;
+
+        const postContent = document.getElementById("post-content").value;
+
+        const post = {
+          postTitle: postTitle,
+          postContent: postContent,
+        };
+
+        console.log(postTitle);
+        const prevPost = window.localStorage.getItem(posts.pop());
+        console.log("Previous post: " + prevPost);
+
+        const newPost = JSON.parse(prevPost);
+        newPost.postTitle = postTitle;
+        newPost.postContent = postContent;
+
+        window.localStorage.setItem(`${postTitle}`, JSON.stringify(newPost));
+        console.log("New Post: " + window.localStorage.getItem(postTitle));
+        posts.push(postTitle);
       };
 
       const deletePost = () => {
         alert("Delete method invoked");
+        // TODO: Add the logic to implement deletePost method.
       };
 
       const showPosts = () => {
-        alert("Show button pressed");
+        // let tempPosts = posts.reverse();
+        let postArea = document.getElementById("post-area");
+        postArea.innerHTML = `<div class="post">`;
+
+        for (let i = posts.length - 1; i >= 0; i--) {
+          const postTitle = posts[i];
+          const postBody = JSON.parse(
+            window.localStorage.getItem(postTitle)
+          ).postContent;
+          console.log(postTitle + " -> " + postBody);
+          postArea.innerHTML += `<div class="posts">`;
+          postArea.innerHTML += `<span class="post-title">${postTitle}</span><br>`;
+          postArea.innerHTML += `<span class="post-body">${postBody}</span>`;
+          postArea.innerHTML += `</div><br>`;
+        }
+
+        postArea.innerHTML += `</div>`;
       };
     </script>
   </body>
